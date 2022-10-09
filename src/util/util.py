@@ -5,7 +5,7 @@ from hashlib import sha256
 from base64 import b64encode, b64decode
 
 
-def printp(s, args**): print(f"{shellPadding}{s}", args**)
+def printp(s, *args): print(f"{shellPadding}{s}", *args)
 
 class JSON:
 	def parseJsonFile(Fname: str) -> dict:
