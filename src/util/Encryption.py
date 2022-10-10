@@ -5,6 +5,7 @@ class KeyNotSpecifiedException(Exception):
 	pass
 
 class CryptoGraphy:
+	""" An encryptor using the Fernet algorithm. """
 	def  __init__(self, key = None):
 		
 		if key:
@@ -19,11 +20,12 @@ class CryptoGraphy:
 			exit(1)
 
 	def updateKey(self, new):
+		""" Updates the key to use to Cipher/Decipher with. """
 		padding = "$" * (32 - len(new))
 		self.key = b64encode((new + padding).encode())
 
-	def enc(self, plain):
+	def Cipher(self, plain):
 		return self.superV.encrypt(plain.encode()).decode()
 
-	def decry(self, cypher):
+	def Decipher(self, cypher):
 		return self.superV.decrypt(cypher).decode()

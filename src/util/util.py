@@ -1,9 +1,8 @@
-from .vars import DATAPATH, shellPadding
+from .vars import DATAPATH, shellPadding, COLORS
 from os import path
 from json import dumps, loads, dump, load
 from hashlib import sha256
 from base64 import b64encode, b64decode
-
 
 def printp(s, *args): print(f"{shellPadding}{s}", *args)
 
@@ -71,5 +70,14 @@ def B64E(data): return b64encode(data.encode()).decode() if isinstance(data, str
 def B64D(data): return b64decode(data).decode()
 
 
+# wanted to use this class but it is clearly not working. for my pc atleast..
+class console:
+	""" basic class to write messages to the console. """
+	def __init__(self):
+		self.colors = COLORS
+	def writeSuccess(self, s): printp(COLORS["green"] + s)
+	def writeError(self, s): printp(COLORS["red"] + s)
+	def writeInfo(self, s): printp(COLORS["yellow"] + s)
+	def write(self, s, colorKey="yellow"): printp("{}".format(COLORS[colorKey])) if colorKey in list(self.colors.keys()) else printp("{}".format(COLORS["white"]))
 
 

@@ -1,9 +1,19 @@
 from .Encryption import CryptoGraphy
 from os import scandir, path, remove
-from base64 import b64encode, b64decode
-from .util import JSON, B64E, B64D, parseSepValue, printp
+
+from .util import (
+	JSON, 
+	B64E,
+	B64D, 
+	parseSepValue, 
+	printp
+)
+
 import pprint
 from .vars import shellPadding
+
+
+
 
 class CollectionsClass:
 	
@@ -27,9 +37,9 @@ class CollectionsClass:
 	@property
 	def CollectionPaths(self): return list(self.StoredCollections.values())
 
-	def encryptData(self, d): return self.dataProvider.enc(d)
+	def encryptData(self, d): return self.dataProvider.Cipher(d)
 	
-	def decryptData(self, d): return self.dataProvider.decry(d)
+	def decryptData(self, d): return self.dataProvider.Decipher(d)
 	
 	def DeleteCollection(self, index):
 		""" Deleting a data collection. """

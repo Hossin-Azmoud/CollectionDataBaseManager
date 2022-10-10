@@ -4,6 +4,7 @@ from util.util import JSON, hash_, checkHash, parseStrCommand, printp
 from util.dbUtil import CollectionsClass
 from time import sleep
 
+
 class CollectionManager:
 
 	def __init__(self):
@@ -12,8 +13,7 @@ class CollectionManager:
   (1) Login
   (2) Sign in
 
-  answer: 
-"""
+  answer: """
 )
 
 
@@ -81,12 +81,12 @@ class CollectionManager:
 		return self.Db.CollectionNames
 
 	def info(self):
-		printp()
+		print()
 		printp(f"current user: {self.userName}")
 		printp(f"user folder: {self.UserFolderPath}")
 		printp(f"Collection path: {self.collectionsPath}")
 		printp(f"Collection count: {len(self.load())}")
-		printp()
+		print()
 
 	def dashBoard(self):
 		run_ = True
@@ -134,7 +134,7 @@ class CollectionManager:
 			if not path.exists(i): 
 				printp(f"{i} does not exist")
 				exit(1)
-				raise Exception(f"error: a config file was not found {i}")
+				
 
 
 
